@@ -7,7 +7,7 @@ public class SaldoInsuficienteException extends Exception {
 	
 	public SaldoInsuficienteException(Double valor) {
 		super();
-		this.valor = valor;
+		this.setValor(valor);
 	}
 
 	public SaldoInsuficienteException(String message, Throwable cause) {
@@ -16,6 +16,14 @@ public class SaldoInsuficienteException extends Exception {
 
 	public SaldoInsuficienteException(String message) {
 		super(message);
+	}
+
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
 	}
 	
 	

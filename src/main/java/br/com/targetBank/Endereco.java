@@ -6,7 +6,7 @@ public class Endereco {
 	private String bairro;
 	private String numero;
 	private String cidade;
-	private String estado;
+	private Estado estado;
 	private String cep;
 	private String pais;
 
@@ -16,12 +16,12 @@ public class Endereco {
 		this.bairro = bairro;
 		this.numero = numero;
 		this.cidade = "Porto Alegre";
-		this.estado = "RS";
+		this.estado = Estado.RS;
 		this.cep = cep;
 		this.pais = "Brasil";
 	}
 
-	public Endereco(String rua, String bairro, String numero, String cidade, String estado, String cep) {
+	public Endereco(String rua, String bairro, String numero, String cidade, Estado estado, String cep) {
 		super();
 		this.rua = rua;
 		this.bairro = bairro;
@@ -32,7 +32,7 @@ public class Endereco {
 		this.pais = "Brasil";
 	}
 
-	public Endereco(String rua, String bairro, String numero, String cidade, String estado, String cep, String pais) {
+	public Endereco(String rua, String bairro, String numero, String cidade, Estado estado, String cep, String pais) {
 		super();
 		this.rua = rua;
 		this.bairro = bairro;
@@ -75,11 +75,11 @@ public class Endereco {
 		this.cidade = cidade;
 	}
 
-	public String getEstado() {
+	public Estado getEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
 
@@ -97,6 +97,33 @@ public class Endereco {
 
 	public void setPais(String pais) {
 		this.pais = pais;
+	}
+
+	public String toString() {
+		String endereco = "";
+		if (rua != null) {
+			endereco += rua;
+		}
+		if (numero != null) {
+			endereco += " n. " + numero;
+		}
+		if (bairro != null) {
+			endereco += " Bairro: " + bairro + "\n";
+		}
+		if (cidade != null) {
+			endereco += cidade;
+		}
+		if (estado != null) {
+			endereco += " - " + estado.getDescricao() + ",";
+		}
+		if (cep != null) {
+			endereco += " " + cep + ",";
+		}
+		if (pais != null) {
+			endereco += " " + pais;
+		}
+
+		return endereco;
 	}
 
 }

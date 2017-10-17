@@ -1,11 +1,22 @@
 package br.com.targetBank;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 public class Cliente {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(name = "nome")
 	private String nome;
+	@OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
 	private Endereco endereco;
-	
+
 	public Cliente(String nome) {
 		super();
 		this.nome = nome;
